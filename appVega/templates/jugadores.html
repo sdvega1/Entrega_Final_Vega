@@ -1,0 +1,48 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}  
+    <title>Pagina de Inicio - Jugadores</title>
+    <h1> Pagina de Inicio - Jugadores</h1>
+    <body>
+      <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+       <p> 
+        {% for jugador in jugadores %}
+
+          {{jugador.nombre}}  {{jugador.edad}}  {{jugador.nacionalidad}} <br>
+
+          <h5 class="fw-bolder">Equipo: {{jugador.equipo}}</h5>
+        {% endfor %}
+       </p>
+      <h1>Formulario - Agregar Jugador</h1>
+    
+      {% if miFormulario.errors %}
+  
+      <p style="color: red;"> Están mal los datos, revisar</p>
+  
+      {% endif %}
+  
+  
+      <form action="" method="POST">{% csrf_token %}
+  
+          <!-- Acá está la magia de Django-->
+          
+          <table>
+  
+              {{ miFormulario.as_table }}
+  
+  
+          </table>
+  
+  
+          <input type="submit", value="Enviar">
+  
+      </form>
+
+ 
+
+    </body>
+    <div class="sidebar-heading border-bottom bg-light">Jugadores</div>
+
+{% endblock %}

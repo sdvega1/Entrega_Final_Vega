@@ -1,0 +1,18 @@
+
+<p>Buscando a: {{nombre}}</p>
+    {% if jugadores %}
+
+    <ul>
+    {% for jugador in jugadores %}
+
+    <h5 class="fw-bolder">Equipo: {{jugador.equipo}}</h5>
+    {% endfor %}
+
+    </ul>
+
+    {% else %}
+
+    <p>No se encuentran datos con lo ingresado </p>
+    {% endif %}    
+
+    <p style="color: red;">{{respuesta}}</p>
