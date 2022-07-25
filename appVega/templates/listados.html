@@ -1,0 +1,33 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}  
+<title>Jugadores</title>
+<table>
+    <tr>
+Listado de Jugadores<br><br>
+
+<button><a href="{% url 'New' %}"> Nuevo Jugador</a></button>
+<button><a href="{% url 'BuscarJugador' %}"> Buscar Jugador</a></button>
+<br>
+        <p>    Nombre:           Nacionalidad:</p>
+        
+</table>
+{% for j in jugadores  %}
+
+    <p>{{j.nombre}}</th> <th>{{j.nacionalidad}}</th> 
+        <button><a href="{% url 'EditarJugador' j.nombre %}"> Editar</a>-<a href="{% url 'EliminarJugador' j.nombre %}"> Eliminar</a>-<a href="{% url 'VerJugador' j.nombre %}"> Ver datos</a></button></p>
+
+{% endfor %}
+
+
+<br>
+
+
+
+<br>
+
+    
+
+{% endblock %}

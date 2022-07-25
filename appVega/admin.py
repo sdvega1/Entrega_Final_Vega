@@ -4,3 +4,5 @@ from  .models import *
 admin.site.register(Jugador)
 admin.site.register(Equipo)
 admin.site.register(Fixture)
+admin.site.register(Blog)
+admin.site.register(Avatar)

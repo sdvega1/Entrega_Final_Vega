@@ -4,31 +4,17 @@
 
 {% block contenidoQueCambia %}
 
-    <title>Pagina de Inicio - Fixture</title>
-    <h1> Pagina de Inicio - Fixture</h1>
+    <title>Grupos</title>
+    <h1> Fixture</h1>
     <body>
-        {% if miFormulario.errors %}
-  
-        <p style="color: red;"> Están mal los datos, revisar</p>
-    
-        {% endif %}
-    
-    
-        <form action="" method="POST">{% csrf_token %}
-    
-            <!-- Acá está la magia de Django-->
-            
-            <table>
-    
-                {{ miFormulario.as_table }}
-    
-    
-            </table>
-    
-    
-            <input type="submit", value="Enviar">
-    
-        </form>
+
+    <p>Grupo   Equipo  Cabeza de Serie</p> 
+    {% for f in fixture %}
+
+     {{f.grupo}}  {{f.pais}} {{f.cabeza_de_serie}} <br>
+
+    {% endfor %}
+
     </body>
     <div class="sidebar-heading border-bottom bg-light">Fixture</div>
 

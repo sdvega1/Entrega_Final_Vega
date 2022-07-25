@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores_List</title>
+</head>
+<body>
+
+    <h1>Lista de Jugadores</h1>
+    <ul>
+        {% for jugador in object_list %}
+            <li>
+                <p>NOMBRE: <i></i>{{ jugador.nombre }} </i></p>
+                <p> 
+                    <a href="{% url 'Detail' jugador.id %}">Ver</a>  
+                    <a href="{% url 'Edit' jugador.id %}">Editar</a>  
+                    <a href="{% url 'Delete' jugador.id %}">Borrar</a> 
+                    
+                
+                </p> 
+            </li>
+        {% endfor %}       
+       
+    </ul>
+    <a href="{% url 'New'  %}">Nuevo</a> |
+    <a href="{% url 'Inicio'  %}">Regresar</a>
+
+
+</body>
+</html>

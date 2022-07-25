@@ -1,3 +1,9 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
 
 <p>Buscando a: {{nombre}}</p>
     {% if jugadores %}
@@ -5,7 +11,8 @@
     <ul>
     {% for jugador in jugadores %}
 
-    <h5 class="fw-bolder">Equipo: {{jugador.equipo}}</h5>
+    <h6>Nombre: {{jugador.nombre}} <br> Edad: {{jugador.edad}} <br> Nacionalidad: {{jugador.nacionalidad}} <br> Equipo: {{jugador.equipo}} <br> Titulos: {{jugador.titulos}} </h6>
+    <br>    
     {% endfor %}
 
     </ul>
@@ -16,3 +23,6 @@
     {% endif %}    
 
     <p style="color: red;">{{respuesta}}</p>
+
+
+    {% endblock %}

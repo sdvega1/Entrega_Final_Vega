@@ -1,0 +1,35 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}  
+<title>Equipos</title>
+<table>
+
+<tile>Listado de equipos Copa del Mundo:</tile>
+<br>
+<br>
+<button><a href="{% url 'Equipos' %}"> Cargar Equipo</a></button>
+
+    <tbody>
+        <tr>
+            
+            {% for e in equipos  %} 
+            <td></td>
+            <p>Pais: {{e.pais}}     Titulos: {{e.titulos}}</p>
+            {% endfor %}  
+
+   
+        </tr>   
+    </tbody>
+</table>
+<br>
+<br>
+
+
+
+<br>
+
+ 
+
+{% endblock %}

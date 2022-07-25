@@ -1,0 +1,30 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}  
+
+<div class="container-fluid">
+    <h1 class="mt-4">Blogs</h1>
+
+    <button><a href="{% url 'Blog' %}"> Crear Blog</a></button>
+    <p></p>
+    <p></p>
+    <p><br>
+
+        
+    </p>
+</div>
+
+
+{% for b in blogs  %}
+
+<p><th>{{b.fecha}}</th><br> 
+    <th>{{b.titulo}}</th><br>    
+    <th> {{b.cuerpo}}<br></th>
+    <th>{{b.nombre}}</th></p>
+<hr>
+
+{% endfor %}
+
+{% endblock %}

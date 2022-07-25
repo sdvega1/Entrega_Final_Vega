@@ -1,5 +1,11 @@
+{% extends "inicio.html" %}
 
-<div style="background-color: white;"">
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<div style="background-color: white();"">
     <h2> Buscar Jugador:</h2>
     <form action="buscar/" method="GET">
 
@@ -10,4 +16,4 @@
 
 </div>
 
-
+{% endblock %}

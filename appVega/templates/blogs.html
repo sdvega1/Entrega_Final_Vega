@@ -1,0 +1,46 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<title>Blogs</title>
+
+<body>
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <!-- Acá está la magia de Django-->
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+    
+   {% for b in blogs  %}
+
+    <form>{{b.nombre}} {{b.titulo}} {{b.fecha}} {{b.cuerpo}}</form>
+    
+
+   {% endfor %}
+
+
+
+</body>
+<div class="sidebar-heading border-bottom bg-light"></div>
+
+{% endblock %}

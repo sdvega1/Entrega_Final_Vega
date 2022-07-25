@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Pagina de Inicio - Mundial de Catar</title>
+    
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -19,11 +19,12 @@
                 <div class="sidebar-heading border-bottom bg-light">Mundial 2022</div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Inicio' %}">Inicio</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Equipos' %}">Equipos</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Jugadores' %}">Jugadores</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Fixture' %}">Fixture</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'BuscarJugador' %}">BuscarJugador</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"></a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Fixture' %}">Grupos</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Listados' %}">Jugadores</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'ListadoEquipos' %}">Equipos</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'About' %}">About</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Ver_Blogs' %}">Blog</a>
+
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -35,17 +36,18 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#!">Action</a>
-                                        <a class="dropdown-item" href="#!">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Something else here</a>
-                                    </div>
-                                </li>
+                                {% if not request.user.is_authenticated %}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+
+                                {% if request.user.is_authenticated %}                                
+                                <img src="{{url}}" style="height: 40px; width: 45px;" > 
+                                <li class="nav-item active">Usuario: {{user.username}} </li>
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'EditarPerfil' %}">Editar Perfil</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>                                   
+                                {% endif %}    
+
+
                             </ul>
                         </div>
                     </div>
@@ -53,12 +55,14 @@
                 <!-- Page content-->
                 
                 {% block contenidoQueCambia %}
+                <title>Home</title>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Mundial de Catar</h1>
-                    <p>Blog del mundial de futbol de Catar 2022, con informacion de los equipos y jugadores.</p>
-                    <p>
+                    <h1>Copa del mundo de Futbol masculino 2022</h1><br>
+                    <p>La Copa Mundial de Fútbol de la FIFA Catar 2022 será la XXII edición de la Copa Mundial de Fútbol masculino organizada por la FIFA. Esta edición se realizará desde el 21 de noviembre al 18 de diciembre de 2022 en Catar, que consiguió los derechos de organización el 2 de diciembre de 2010.</p>
+                    <p>En esta pagina podras ver los equipos, jugadores y grupos. Tambien dejar tus comentarios en el blog si estas registrado.</p>
+                    <p><br>
+             
                         
-                                         
                     </p>
                 </div>
 

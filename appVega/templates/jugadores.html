@@ -4,18 +4,14 @@
 
 {% block contenidoQueCambia %}  
     <title>Pagina de Inicio - Jugadores</title>
-    <h1> Pagina de Inicio - Jugadores</h1>
+    <h1></h1>
+
+   
     <body>
       <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-       <p> 
-        {% for jugador in jugadores %}
-
-          {{jugador.nombre}}  {{jugador.edad}}  {{jugador.nacionalidad}} <br>
-
-          <h5 class="fw-bolder">Equipo: {{jugador.equipo}}</h5>
-        {% endfor %}
-       </p>
-      <h1>Formulario - Agregar Jugador</h1>
+        
+              
+    <h1>Cargar Jugador</h1>
     
       {% if miFormulario.errors %}
   
@@ -36,9 +32,9 @@
           </table>
   
   
-          <input type="submit", value="Enviar">
+          <input type="submit", value="Enviar"> 
   
-      </form>
+      </form> 
 
  
 
